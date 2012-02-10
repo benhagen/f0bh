@@ -1,1 +1,40 @@
-Hello world!
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>f0bh.org</title>
+	<script src="jquery.js" type="text/javascript"></script>
+	<script src="asciiPlasma.js" type="text/javascript"></script>
+
+</head>
+<body style='margin: 0; padding: 0; background: #333;'>
+
+<div id='plasma' style='overflow: hidden; position: absolute; background-color: transparent; left: 0px; top: 0px;'></div>
+<pre style='margin: 0; padding: 0; background-color: rgba(51,51,51,.75);'>
+  ----------------
+ [ Hello World... ]
+  ----------------
+</pre>
+	<script language="JavaScript" type="text/javascript">
+		$(document).ready(function() {
+			$('#plasma').width($(window).width());
+			$('#plasma').height($(window).height());
+
+			$(window).resize(function() {
+				//alert('Dolp! You resized!')
+//				$('#plasma').width($(window).width());
+//				$('#plasma').height($(window).height());
+			});
+
+			$('#plasma').prepend("<pre id='plasmaArea' style='overflow: hidden; position: absolute; top: 0; margin:0; padding:0; user-select: none; -webkit-user-select: none; color: #300;'>0</pre>");
+
+			cw = characterWidth($('#plasmaArea'));
+			ch = characterHeight($('#plasmaArea'));
+
+			plasmaBox = new Plasma(document.getElementById('plasmaArea'), Math.ceil($(window).width() / cw),  Math.ceil($(window).height() / ch));
+			//$("#plasmaArea").width(cw * 90);
+			//$("#plasmaArea").height(ch * 40);
+		});
+	</script>
+
+</body>
+</html>
